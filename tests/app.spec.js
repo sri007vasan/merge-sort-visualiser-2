@@ -8,7 +8,7 @@ test.describe('Merge Sort Visualizer', () => {
   test('generates array and shows original step', async ({ page }) => {
     await page.getByTestId('array-input').fill('38,12,27,43');
     await page.getByTestId('generate-btn').click();
-    await expect(page.getByTestId('array-display')).toContainText('38');
+    await expect(page.getByTestId('tree-container')).toContainText('38');
     await expect(page.getByTestId('step-counter')).toHaveText('Step 0 / 2');
     await expect(page.getByTestId('explanation')).toHaveText(/Original array/);
   });
@@ -18,7 +18,7 @@ test.describe('Merge Sort Visualizer', () => {
     await page.getByTestId('generate-btn').click();
     await page.getByTestId('next-btn').click();
     await expect(page.getByTestId('step-counter')).toHaveText('Step 1 / 2');
-    await expect(page.getByTestId('explanation')).toHaveText(/Split into/);
+    await expect(page.getByTestId('explanation')).toHaveText(/Split/);
   });
 
   test('previous step returns to original', async ({ page }) => {

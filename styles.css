@@ -11,19 +11,33 @@ text-align: center;
 margin-bottom: 1rem;
 text-align: center;
 }
-#array-display {
+#tree-container {
 display: flex;
-flex-wrap: wrap;
 justify-content: center;
-gap: 0.5rem;
+flex-wrap: wrap;
+gap: 1rem;
 margin-top: 1rem;
+}
+.tree-node {
+border: 1px solid #ddd;
+border-radius: 4px;
+padding: 0.5rem;
+background: #fff;
+}
+.node-header {
+display: flex;
+justify-content: center;
+gap: 0.2rem;
 }
 .array-box {
 background: #2196f3;
 color: white;
-padding: 0.5rem 0.75rem;
+padding: 0.3rem 0.5rem;
 border-radius: 4px;
 font-weight: bold;
+}
+.tree-node.highlight .node-header {
+border: 2px solid #ff9800;
 }
 #explanation {
 margin-top: 1rem;
@@ -31,6 +45,21 @@ padding: 0.5rem;
 background: #fff;
 border: 1px solid #ddd;
 border-radius: 4px;
+}
+#legend {
+margin-top: 1rem;
+display: flex;
+gap: 1rem;
+}
+.legend-item {
+display: flex;
+align-items: center;
+gap: 0.3rem;
+}
+.color-box {
+width: 12px;
+height: 12px;
+display: inline-block;
 }
 button:disabled {
 opacity: 0.5;

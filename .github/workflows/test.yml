@@ -2,7 +2,7 @@
 # merge sort visualiser - Test & Deploy pipeline
 # Managed by DeployCraft. Regenerated on every change.
 #
-# We built a lightweight Merge Sort Visualizer that lets users input an array, generate it, and step through a…
+# We added a tree‑based Merge Sort visualizer that builds the full merge‑sort tree, animates splitting and…
 #
 # Every push runs the Playwright suite in tests/. Commits reach GitHub Pages only
 # when the suite passes on main. This build verifies:

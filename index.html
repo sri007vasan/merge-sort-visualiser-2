@@ -19,15 +19,34 @@
 <section id="controls-section">
 <button id="prev-btn" data-testid="prev-btn" disabled>Previous Step</button>
 <button id="next-btn" data-testid="next-btn" disabled>Next Step</button>
+<button id="play-btn" data-testid="play-btn" disabled>Play</button>
+<button id="pause-btn" data-testid="pause-btn" disabled>Pause</button>
+<button id="reset-btn" data-testid="reset-btn" disabled>Reset</button>
+<select id="speed-select" data-testid="speed-select">
+  <option value="500">0.5x</option>
+  <option value="1000" selected>1x</option>
+  <option value="2000">2x</option>
+</select>
 <span id="step-counter" data-testid="step-counter">Step 0 / 0</span>
 </section>
 
-<section id="array-display" data-testid="array-display">
-<!-- Array boxes will be inserted here -->
+<section id="tree-container" data-testid="tree-container">
+  <!-- Tree nodes will be inserted here -->
 </section>
 
 <section id="explanation" data-testid="explanation">
-<!-- Explanation text -->
+  <!-- Explanation text -->
+</section>
+
+<section id="legend" data-testid="legend">
+  <span class="legend-item"><span class="color-box" style="background:#2196f3;"></span> Original</span>
+  <span class="legend-item"><span class="color-box" style="background:#ff9800;"></span> Splitting</span>
+  <span class="legend-item"><span class="color-box" style="background:#90caf9;"></span> New subarray</span>
+  <span class="legend-item"><span class="color-box" style="background:#9c27b0;"></span> Base case</span>
+  <span class="legend-item"><span class="color-box" style="background:#ffeb3b;"></span> Comparing</span>
+  <span class="legend-item"><span class="color-box" style="background:#4caf50;"></span> Selected</span>
+  <span class="legend-item"><span class="color-box" style="background:#388e3c;"></span> Sorted</span>
+  <span class="legend-item"><span class="color-box" style="background:#1b5e20;"></span> Final</span>
 </section>
 </main>
 
