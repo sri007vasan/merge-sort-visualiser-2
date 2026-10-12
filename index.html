@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Merge Sort Visualizer</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+<h1>Merge Sort Visualizer</h1>
+</header>
+<main>
+<section id="input-section">
+<label for="array-input">Enter numbers (comma separated):</label>
+<input type="text" id="array-input" placeholder="e.g. 38,12,27,43" data-testid="array-input">
+<button id="generate-btn" data-testid="generate-btn">Generate Array</button>
+</section>
+
+<section id="controls-section">
+<button id="prev-btn" data-testid="prev-btn" disabled>Previous Step</button>
+<button id="next-btn" data-testid="next-btn" disabled>Next Step</button>
+<span id="step-counter" data-testid="step-counter">Step 0 / 0</span>
+</section>
+
+<section id="array-display" data-testid="array-display">
+<!-- Array boxes will be inserted here -->
+</section>
+
+<section id="explanation" data-testid="explanation">
+<!-- Explanation text -->
+</section>
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>
