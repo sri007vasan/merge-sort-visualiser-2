@@ -54,7 +54,7 @@ function buildTree(arr) {
   treeContainer.appendChild(root);
 }
 
-// Generate steps for animation
+// Generate steps for animation (simplified to 3 steps)
 function generateSteps(arr) {
   const steps = [];
   // Step 0: original
@@ -63,42 +63,25 @@ function generateSteps(arr) {
     array: arr.slice(),
     explanation: `Original array: [${arr.join(', ')}]`
   });
-  // Splitting steps
-  function splitRec(sub, path) {
-    if (sub.length <= 1) return;
-    const mid = Math.floor(sub.length / 2);
-    const left = sub.slice(0, mid);
-    const right = sub.slice(mid);
-    steps.push({
-      type: 'split',
-      path: path,
-      left: left,
-      right: right,
-      explanation: `Split [${sub.join(', ')}] into [${left.join(', ')}] and [${right.join(', ')}]`
-    });
-    splitRec(left, path.concat('left'));
-    splitRec(right, path.concat('right'));
-  }
-  splitRec(arr, []);
-  // Merging steps
-  function mergeRec(sub, path) {
-    if (sub.length <= 1) return;
-    const mid = Math.floor(sub.length / 2);
-    const left = sub.slice(0, mid);
-    const right = sub.slice(mid);
-    mergeRec(left, path.concat('left'));
-    mergeRec(right, path.concat('right'));
-    const merged = [...left, ...right].sort((a,b)=>a-b);
-    steps.push({
-      type: 'merge',
-      path: path,
-      left: left,
-      right: right,
-      merged: merged,
-      explanation: `Merge [${left.join(', ')}] and [${right.join(', ')}] into [${merged.join(', ')}]`
-    });
-  }
-  mergeRec(arr, []);
+  // Step 1: split
+  const mid = Math.floor(arr.length / 2);
+  const left = arr.slice(0, mid);
+  const right = arr.slice(mid);
+  steps.push({
+    type: 'split',
+    left: left,
+    right: right,
+    explanation: `Split [${arr.join(', ')}] into [${left.join(', ')}] and [${right.join(', ')}]`
+  });
+  // Step 2: merge
+  const merged = [...left, ...right].sort((a,b)=>a-b);
+  steps.push({
+    type: 'merge',
+    left: left,
+    right: right,
+    merged: merged,
+    explanation: `Merge [${left.join(', ')}] and [${right.join(', ')}] into [${merged.join(', ')}]`
+  });
   return steps;
 }
 
@@ -114,11 +97,8 @@ function updateUI() {
   const nodes = treeContainer.querySelectorAll('.tree-node');
   nodes.forEach(node => node.classList.remove('highlight'));
   if (step.type === 'split' || step.type === 'merge') {
-    const path = step.path || [];
-    let target = treeContainer.querySelector('.tree-node');
-    path.forEach(p => {
-      target = target.querySelector(`.node-children > .tree-node:nth-child(${p === 'left' ? 1 : 2})`);
-    });
+    // Highlight the root node for split and merge
+    const target = treeContainer.querySelector('.tree-node');
     if (target) target.classList.add('highlight');
   }
 }
